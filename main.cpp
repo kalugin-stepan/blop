@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <map>
 
 using namespace std;
 
@@ -31,13 +30,16 @@ void print_frame(Frame* frame);
 int main() {
     Frame frame;
 
+    unsigned count = 0;
+
     for (unsigned i = 0; i < frame.h; i++) {
         for (unsigned j = 0; j < frame.w; j++) {
             if (frame.frame_data[i][j] != '#') continue;
             cout << find_obj_S(&frame, j, i) << endl;
-            print_frame(&frame);
+            count++;
         }
     }
+    cout << count << endl;
 }
 
 void print_frame(Frame* frame) {
